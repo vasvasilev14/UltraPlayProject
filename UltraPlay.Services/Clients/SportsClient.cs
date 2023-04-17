@@ -15,7 +15,6 @@ namespace UltraPlay.Services.Clients
             _httpClient = httpClient;
         }
 
-        // <inheritdoc />
         public async Task<string> GetXmlSportsDataAsync(CancellationToken cToken)
         {
             cToken.ThrowIfCancellationRequested();

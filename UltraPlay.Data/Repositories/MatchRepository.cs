@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using UltraPlay.Data.Interfaces;
-using UltraPlay.Data.Models;
 using UltraPlay.Data.ViewModels;
 
 namespace UltraPlay.Data.Repositories
@@ -60,7 +59,7 @@ namespace UltraPlay.Data.Repositories
         public async Task<List<MatchViewModel>> GetMatchesIn24Hours(List<string> allowedBets, CancellationToken cToken)
         {
             var models = await _context.Matches
-                .Where(x => x.StartDate <= DateTime.Now.AddHours(24) && x.DateDeleted == null)
+                .Where(x => x.StartDate >= DateTime.UtcNow && x.StartDate <= DateTime.UtcNow.AddHours(24) && x.DateDeleted == null)
                 .Select(x => new MatchViewModel
                 {
                     ID = x.ID,

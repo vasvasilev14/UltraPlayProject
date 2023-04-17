@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Net;
-using System.Text;
 using UltraPlay.Data.Constants;
 using UltraPlay.Data.Enums;
 using UltraPlay.Data.Interfaces;

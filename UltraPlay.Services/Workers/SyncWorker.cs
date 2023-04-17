@@ -34,7 +34,7 @@ namespace UltraPlay.Services.Workers
 
                 await databaseEngine.UpdateDatabaseAsync(sportDto, cToken);
 
-                _logger.LogInformation($"Worker running at: {DateTimeOffset.Now}, for {counter} time");
+                _logger.LogInformation($"Worker running at: {DateTime.UtcNow}, for {counter} time");
                 counter++;
 
                 await Task.Delay(Constans.DownloadIntervalMiliseconds, cToken);
